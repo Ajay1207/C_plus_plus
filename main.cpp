@@ -220,7 +220,27 @@ void print_oned_2d(int*& arr, int rows, int cols)
 	cout << endl;
 }
 
-void print_tmplt_mat(Mat<int> *mat, int rows, int cols)
+/// <summary>
+/// If passing a unique pointer then need to pass ref
+/// </summary>
+/// <param name="mat"></param>
+/// <param name="rows"></param>
+/// <param name="cols"></param>
+template<typename funt>
+void print_simple_tmpl(unique_ptr<funt>& mat, int rows, int cols)
+{
+	for (int ridx = 0; ridx < rows; ++ridx)
+	{
+		for (int cidx = 0; cidx < cols; ++cidx)
+			cout << mat[cidx + cols*ridx]<< " ";
+
+		cout << endl;
+
+	}
+	cout << endl;
+}
+
+void print_tmplt_mat(unique_ptr<Mat<int>> &mat, int rows, int cols)
 {
 	for (int ridx = 0; ridx < rows; ++ridx)
 	{
@@ -307,10 +327,16 @@ int main(int argc, char* argv[])
 	//cout << square(5.6) << endl;
 	int r = 2;
 	int c = 3;
-	Mat<int> *m = new Mat<int>(r,c);
-	print_tmplt_mat(m, r, c);
+
+	auto m = make_unique<Mat<int>>(r,c);
+
+	auto unp = unique_ptr<int[]>(new int[r*c]);
+	print_simple_tmpl(unp, r, c);
+
+
+	/*print_tmplt_mat(m, r, c);
 	m->set_elements();
-	print_tmplt_mat(m, r, c);
+	print_tmplt_mat(m, r, c);*/
 }
 
 

@@ -1,9 +1,11 @@
 #pragma once
 template<typename T>
+
+
 class Mat
 {
 private:
-	T* mat;
+	int* mat;
 	T rows;
 	T cols;
 public:
@@ -11,7 +13,7 @@ public:
 	{
 		this->rows = rows;
 		this->cols = cols;
-		mat = new T[rows * cols];
+		mat = new int[rows*cols];
 	}
 	void set_elements()
 	{
