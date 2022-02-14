@@ -5,8 +5,11 @@
 #include<string>
 #include<stack>
 #include<stdlib.h>
+//#include<memory>
 
 #include "PracticeTemplates.h"
+#include "DDog.h"
+
 //using namespace std;
 //int main()
 //{
@@ -175,168 +178,230 @@
 //
 //}
 
-void set_elements(int* dyn, int length)
+//template<typename typ>
+//void set_elements(typ* dyn, int length)
+//{
+//	for (int x = 0; x < length; ++x)
+//	{
+//		dyn[x] = x;
+//	}
+//}
+//
+//
+//void print(int*& arr, int length)
+//{
+//	for (int x = 0; x < length; ++x)
+//	{
+//		cout << arr[x] << " ";
+//	}
+//	cout << endl;
+//}
+//
+//
+//void print_2d(int**& arr, int rows, int cols)
+//{
+//	for (int ridx = 0; ridx < rows; ++ridx)
+//	{
+//		for (int cidx = 0; cidx < cols; ++cidx)
+//			cout << arr[ridx][cidx] << " ";
+//
+//		cout << endl;
+//
+//	}
+//	cout << endl;
+//}
+//
+//template<typename typ>
+//
+//void print_oned_2d(typ*& arr, int rows, int cols)
+//{
+//	for (int ridx = 0; ridx < rows; ++ridx)
+//	{
+//		for (int cidx = 0; cidx < cols; ++cidx)
+//			cout << arr[cols*ridx + cidx] << " ";
+//
+//		cout << endl;
+//
+//	}
+//	cout << endl;
+//}
+//
+///// <summary>
+///// If passing a unique pointer then need to pass ref
+///// </summary>
+///// <param name="mat"></param>
+///// <param name="rows"></param>
+///// <param name="cols"></param>
+//template<typename funt>
+//void print_simple_tmpl(unique_ptr<funt>& mat, int rows, int cols)
+//{
+//	for (int ridx = 0; ridx < rows; ++ridx)
+//	{
+//		for (int cidx = 0; cidx < cols; ++cidx)
+//			cout << mat[cidx + cols*ridx]<< " ";
+//
+//		cout << endl;
+//
+//	}
+//	cout << endl;
+//}
+//
+//void print_tmplt_mat(unique_ptr<Mat<int>> &mat, int rows, int cols)
+//{
+//	for (int ridx = 0; ridx < rows; ++ridx)
+//	{
+//		for (int cidx = 0; cidx < cols; ++cidx)
+//			cout << mat->get_2D(ridx,cidx) << " ";
+//
+//		cout << endl;
+//
+//	}
+//	cout << endl;
+//}
+//
+//void one_d_dynamic_arr()
+//{
+//	int* dynamic_arr;
+//	int num_elements = 10;
+//
+//	dynamic_arr = new int[num_elements];
+//
+//	//print(dynamic_arr, num_elements);
+//	set_elements(dynamic_arr, num_elements);
+//	print(dynamic_arr, num_elements);
+//
+//	delete[] dynamic_arr;
+//}
+//
+//
+//void two_d_dynamic_arr()
+//{
+//	int** matrix;
+//	int rows = 10;
+//	int cols = 10;
+//
+//	matrix = new int *[rows];
+//	for (int ridx = 0; ridx < rows; ++ridx)
+//	{
+//		int* row_data = new int[rows];		
+//		matrix[ridx] = row_data;
+//	}
+//
+//
+//	for (int ridx = 0; ridx < rows; ++ridx)
+//	{
+//		int* row_data = new int[rows];
+//		set_elements(row_data, cols);
+//		matrix[ridx] = row_data;
+//
+//	}
+//	print_2d(matrix, rows, cols);
+//
+//	for (int ridx = 0; ridx < rows; ++ridx)
+//	{
+//		delete[] matrix[ridx];
+//	}
+//	delete [] matrix;
+//}
+//
+//void one_dto_2d()
+//{
+//	long* mat;
+//	int rows = 10;
+//	int cols = 10;
+//
+//	mat = new long [(long)rows * (long)cols];
+//
+//	set_elements(mat, rows * cols);
+//	print_oned_2d(mat, rows, cols);
+//	delete[] mat;
+//
+//
+//}
+//
+//
+//
+//int main(int argc, char* argv[])
+//{
+//	//one_dto_2d();
+//	//cout << square(5) << endl;
+//	//cout << square(5.6) << endl;
+//	/*int r = 2;
+//	int c = 3;
+//
+//	auto m = make_unique<Mat<int>>(r,c);
+//	m->set_elements();
+//	auto m2 = make_unique<Mat<int>>(r,c);
+//	m2->set_elements();
+//
+//	auto unp = unique_ptr<int[]>(new int[r*c]);
+//	auto unp2 = unique_ptr<int[]>(new int[c*r]);
+//	
+//	auto res = (*m) + (*m2);
+//	auto res1 = std::make_unique<Mat<int>>(res);
+//	print_tmplt_mat(m, r, c);
+//	print_tmplt_mat(m2, r, c);
+//	print_tmplt_mat(res1, r, c);*/
+//
+//
+//	/*print_tmplt_mat(m, r, c);
+//	m->set_elements();
+//	print_tmplt_mat(m, r, c);*/
+//
+//	/*int r = 3;
+//	int c = 4;
+//
+//	
+//	
+//	shared_ptr<int> sp = std::make_shared<int>(5);
+//	auto sp2 = make_shared<int[]>(4);
+//	auto d = make_shared<Dog>("Buddy");
+//	auto buffer = std::shared_ptr<char[]>(new char[64]);
+//	
+//
+//	Dog simple_dog;*/
+//	//Dog d2(simple_dog);
+//
+//	DDog* d = new DDog("Holler");
+//	DDog* d2 = new DDog("WallE");
+//	
+//	DDog* d3(d);
+//	DDog* d4 = d3;
+//
+//	cout <<"d3 "<< d3->m_name << " " << d3->m_age << endl;
+//	cout <<"d4 "<< d4->m_name << " " << d4->m_age << endl;
+//
+//	delete d3;
+//	delete d2;
+//
+//
+//
+//}
+#include "CTree_11.h"
+using namespace std;
+int main()
 {
-	for (int x = 0; x < length; ++x)
+	TNode<int>* root = new TNode<int>(10);
+
+	root->left = new TNode<int>(10);
+	root->right = new TNode<int>(20);
+	root->left->left = new TNode<int>(30);
+	root->left->right = new TNode<int>(40);
+	root->right->left = new TNode<int>(50);
+	root->right->right = new TNode<int>(60);
+
+	
+
+	vector<int> res = pre_order(root);
+
+	for (vector<int>::iterator it = res.begin(); it != res.end(); ++it)
 	{
-		dyn[x] = x;
-	}
-}
-
-
-void print(int*& arr, int length)
-{
-	for (int x = 0; x < length; ++x)
-	{
-		cout << arr[x] << " ";
-	}
-	cout << endl;
-}
-
-
-void print_2d(int**& arr, int rows, int cols)
-{
-	for (int ridx = 0; ridx < rows; ++ridx)
-	{
-		for (int cidx = 0; cidx < cols; ++cidx)
-			cout << arr[ridx][cidx] << " ";
-
-		cout << endl;
-
-	}
-	cout << endl;
-}
-
-void print_oned_2d(int*& arr, int rows, int cols)
-{
-	for (int ridx = 0; ridx < rows; ++ridx)
-	{
-		for (int cidx = 0; cidx < cols; ++cidx)
-			cout << arr[cols*ridx + cidx] << " ";
-
-		cout << endl;
-
-	}
-	cout << endl;
-}
-
-/// <summary>
-/// If passing a unique pointer then need to pass ref
-/// </summary>
-/// <param name="mat"></param>
-/// <param name="rows"></param>
-/// <param name="cols"></param>
-template<typename funt>
-void print_simple_tmpl(unique_ptr<funt>& mat, int rows, int cols)
-{
-	for (int ridx = 0; ridx < rows; ++ridx)
-	{
-		for (int cidx = 0; cidx < cols; ++cidx)
-			cout << mat[cidx + cols*ridx]<< " ";
-
-		cout << endl;
-
-	}
-	cout << endl;
-}
-
-void print_tmplt_mat(unique_ptr<Mat<int>> &mat, int rows, int cols)
-{
-	for (int ridx = 0; ridx < rows; ++ridx)
-	{
-		for (int cidx = 0; cidx < cols; ++cidx)
-			cout << mat->get(ridx,cidx) << " ";
-
-		cout << endl;
-
-	}
-	cout << endl;
-}
-
-void one_d_dynamic_arr()
-{
-	int* dynamic_arr;
-	int num_elements = 10;
-
-	dynamic_arr = new int[num_elements];
-
-	//print(dynamic_arr, num_elements);
-	set_elements(dynamic_arr, num_elements);
-	print(dynamic_arr, num_elements);
-
-	delete[] dynamic_arr;
-}
-
-
-void two_d_dynamic_arr()
-{
-	int** matrix;
-	int rows = 10;
-	int cols = 10;
-
-	matrix = new int *[rows];
-	for (int ridx = 0; ridx < rows; ++ridx)
-	{
-		int* row_data = new int[rows];		
-		matrix[ridx] = row_data;
+		cout << *it << endl;
 	}
 
+	delete root;
+	e
 
-	for (int ridx = 0; ridx < rows; ++ridx)
-	{
-		int* row_data = new int[rows];
-		set_elements(row_data, cols);
-		matrix[ridx] = row_data;
-
-	}
-	print_2d(matrix, rows, cols);
-
-	for (int ridx = 0; ridx < rows; ++ridx)
-	{
-		delete[] matrix[ridx];
-	}
-	delete [] matrix;
-}
-
-void one_dto_2d()
-{
-	int* mat;
-	int rows = 10;
-	int cols = 10;
-
-	mat = new int [rows * cols];
-
-	set_elements(mat, rows * cols);
-	print_oned_2d(mat, rows, cols);
-	delete[] mat;
-
-
-}
-
-template<typename T>
-
-T square(T x)
-{
-	return x * x;
-}
-
-int main(int argc, char* argv[])
-{
-	//one_dto_2d();
-	//cout << square(5) << endl;
-	//cout << square(5.6) << endl;
-	int r = 2;
-	int c = 3;
-
-	auto m = make_unique<Mat<int>>(r,c);
-
-	auto unp = unique_ptr<int[]>(new int[r*c]);
-	print_simple_tmpl(unp, r, c);
-
-
-	/*print_tmplt_mat(m, r, c);
-	m->set_elements();
-	print_tmplt_mat(m, r, c);*/
 }
 
 
